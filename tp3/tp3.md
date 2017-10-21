@@ -13,19 +13,20 @@
     - afficher 1 octet par ligne: `od -t x1 -w1`
 
 2. 
-
      - le champ 1 correspond à "l'offset" qui permet de donner la position dans la quelle on est dans le fichier == décalage par rapport au début du fichier.
      - par defaut sans argument `od` affiche 16 octet par ligne
      - par defaut `od` affiche de l'octal
      - `-A[doxn]` pour changer le format de l'offset
 
-    >000 443 ( en octal)
-    >0000 0001 0010 0011 [ echange des deux octets ] 0010 0011 0000 0001
-	>   										          0x23	    0x01
-
+    ```txt
+    000 443 ( en octal)
+    0000 0001 0010 0011 [ echange des deux octets ] 0010 0011 0000 0001
+                                                    --------- ---------      
+                                                         0x23      0x01
+    ```
 3.
 `od -t x1 -v -N8 donnees.bin`  `-N8` = _pour limiter aux 8 premiers octects_
-     ~~permet d'avoir un affichage en hexa et pas d'avoir de problème d'endianness et de lire dans le bon ordre.~~
+~~permet d'avoir un affichage en hexa et pas d'avoir de problème d'endianness et de lire dans le bon ordre.~~
 
 ## Exo3
 
@@ -58,8 +59,8 @@ Q2:
 5. `od -tx1 texte.utf8`
     ```txt
     41  42  43  c3 a9   e2 82 ac
-    °°   °°   °°    °°°°      °°°°°°°
-    A    B    C       é           €
+    °°  °°  °°  °°°°°   °°°°°°°°
+    A    B   C    é         €
 
     c3: 1100 0011
     e2: 1110 0010
