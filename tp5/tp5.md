@@ -1,29 +1,27 @@
-EXO1:
+**EXO1**
 
-Q1: stats image.bmp
-      Fichier : « image.bmp »
-   Taille : 374       	Blocs : 8          Blocs d'E/S : 1048576 fichier
-Périphérique : 24h/36d	Inœud : 121390972   Liens : 1
-Accès : (0644/-rw-r--r--)  UID : ( 1377/    sowy)   GID : ( 1005/ infoetu)
- Accès : 2017-10-10 10:57:36.000000000 +0200
-Modif. : 2015-06-05 10:55:58.000000000 +0200
-Changt : 2017-10-10 10:57:36.277155254 +0200
-  Créé : -
+1. `stats image.bmp`
+>Fichier : « image.bmp »
+>Taille : 374       	Blocs : 8          Blocs d'E/S : 1048576 fichier
+>Périphérique : 24h/36d	Inœud : 121390972   Liens : 1
+>Accès : (0644/-rw-r--r--)  UID : ( 1377/    sowy)   GID : ( 1005/ infoetu)
+>Accès : 2017-10-10 10:57:36.000000000 +0200
+>Modif. : 2015-06-05 10:55:58.000000000 +0200
+>Changt : 2017-10-10 10:57:36.277155254 +0200
+>  Créé : -
 
-Q2: printf '%x\n' 374 -> 176
+2. `printf '%x\n' 374 -> 176`
 
-Q3: l'entête est sur 14octect donc on utilise
-    > od -tx1 -N14 image.bmp
+3.  L'entête est sur 14octect donc on utilise `od -tx1 -N14 image.bmp`
 
-Q4:
+4.
+  - la signature est:     _0x42 0x4d_
+  - la taille du fichier: _0x76 0x01 0x00 0x00_
+  - l'offset de l'image:  _0x36 0x00 0x00 0x00_
 
-  - la signature est:     0x42 0x4d
-  - la taille du fichier: 0x76 0x01 0x00 0x00
-  - l'offset de l'image:  0x36 0x00 0x00 0x00
+5. La taille du fichier est la même qu'avec la commande stat
 
-Q5: la taille du fichier est la même qu'avec la commande stat
-
-Q6: > od -tx1 -j14 -N40 image.bmp
+6. `od -tx1 -j14 -N40 image.bmp`
 
 0000016 28 00 00 00 0a 00 00 00 0a 00 00 00 01 00 18 00
 0000036 00 00 00 00 40 01 00 00 13 0b 00 00 13 0b 00 00
