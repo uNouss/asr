@@ -32,13 +32,12 @@
 
 ## Exo3
 
-Q2:
-    `hexedit Secret.class`
-	 - mot à trouver: sEcRet
+2. `hexedit Secret.class`
+	  - mot à trouver: sEcRet
 3.
 4.
     `hexedit Secret.class` <kbd>RET</kbd>
-  	  - Tab (Basculer à la vue ascii et inversement)
+  	- Tab (Basculer à la vue ascii et inversement)
 	  - Modifier le mot sEcRet
 	  - <kbd>Ctrl-X</kbd> ( sauver et quitter)
 	  
