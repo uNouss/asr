@@ -18,14 +18,16 @@
      - par defaut `od` affiche de l'octal
      - `-A[doxn]` pour changer le format de l'offset
 
-    ```txt
-    000 443 ( en octal)
-    0000 0001 0010 0011 [ echange des deux octets ] 0010 0011 0000 0001
-                                                    --------- ---------      
-                                                         0x23      0x01
-    ```
+
+```txt
+000 443 ( en octal)
+0000 0001 0010 0011 [ echange des deux octets ] 0010 0011 0000 0001
+                                                --------- ---------      
+                                                     0x23      0x01
+```
 3.
 `od -t x1 -v -N8 donnees.bin`  `-N8` = _pour limiter aux 8 premiers octects_
+
 ~~permet d'avoir un affichage en hexa et pas d'avoir de problème d'endianness et de lire dans le bon ordre.~~
 
 ## Exo3
@@ -61,7 +63,6 @@ Q2:
     41  42  43  c3 a9   e2 82 ac
     °°  °°  °°  °°°°°   °°°°°°°°
     A    B   C    é         €
-
     c3: 1100 0011
     e2: 1110 0010
     A->0x41:
@@ -71,7 +72,7 @@ Q2:
     €->0xe2 0x82 0xac => U+20AC
     ```
 
-9. `iconv texte.utf8 -t UTF-16 -o texte.utf16` ;;; convertir texte.utf8 en un fichier UTF-16 ( texte.utf16)
-11. `de UTF-16 vers UTF-8 ;;;;  `iconv texte.utf16 -f UTF-16 -o texte.utf8`
+9. `iconv texte.utf8 -t UTF-16 -o texte.utf16` convertir texte.utf8 en un fichier UTF-16 ( texte.utf16)
+11. `iconv texte.utf16 -f UTF-16 -o texte.utf8` de UTF-16 vers UTF-8
 12. `iconv texte.utf8 -t UTF-32 -o texte.utf32` (UTF-16 to UTF-32)
 
