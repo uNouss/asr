@@ -1,15 +1,16 @@
 **EXO1**
 
 1. `stats image.bmp`
->Fichier : « image.bmp »
->Taille : 374       	Blocs : 8          Blocs d'E/S : 1048576 fichier
->Périphérique : 24h/36d	Inœud : 121390972   Liens : 1
->Accès : (0644/-rw-r--r--)  UID : ( 1377/    sowy)   GID : ( 1005/ infoetu)
->Accès : 2017-10-10 10:57:36.000000000 +0200
->Modif. : 2015-06-05 10:55:58.000000000 +0200
->Changt : 2017-10-10 10:57:36.277155254 +0200
->  Créé : -
-
+```bash
+	Fichier : « image.bmp »
+	Taille : 374       	Blocs : 8          Blocs d'E/S : 1048576 fichier
+	Périphérique : 24h/36d	Inœud : 121390972   Liens : 1
+	Accès : (0644/-rw-r--r--)  UID : ( 1377/    sowy)   GID : ( 1005/ infoetu)
+	Accès : 2017-10-10 10:57:36.000000000 +0200
+	Modif. : 2015-06-05 10:55:58.000000000 +0200
+	Changt : 2017-10-10 10:57:36.277155254 +0200
+	  Créé : -
+```
 2. `printf '%x\n' 374 -> 176`
 
 3.  L'entête est sur 14octect donc on utilise `od -tx1 -N14 image.bmp`
