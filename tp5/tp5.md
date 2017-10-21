@@ -1,4 +1,4 @@
-##EXO1
+## EXO1
 
 1. `stats image.bmp`
 ```bash
@@ -34,7 +34,6 @@
 et ensuite afficher les 40octets (`-N40`) suivants qui permettent d'avoir l'entête de l'image.*
 
 7.
-
 	 - la taille de l’entête de l’image :  `od -tx1 -j14 -N4 image.bmp` => `0x28 0x00 0x00 0x00`
 	 - la largeur de l’image : `od -tx1 -j$((14+4)) -N4 image.bmp` => `0x0a 0x00 0x00 0x00`
 	 - la hauteur de l’image : `od -tx1 -j$((14+4+4)) -N4 image.bmp` => `0x0a 0x00 0x00 0x00`
@@ -47,8 +46,8 @@ et ensuite afficher les 40octets (`-N40`) suivants qui permettent d'avoir l'ent�
 => ici palette de l'image est 0 car on a: `echo $((374-(54+320)))` = `0`
 
 donc le code la matrice de l'image est :
+$ `od -An -x -j54 -v -w30 image.bmp`
 ```bash
-$ od -An -x -j54 -v -w30 image.bmp
  ffff ffff ffff ffff ffff ffff 0000 0000 0000 ffff ffff ffff ffff ffff ffff
  0000 ffff ffff ffff ffff ffff ffff 0000 0000 0000 ffff ffff ffff ffff ffff
  ffff 0000 ffff ffff ffff ffff ffff ffff 0000 0000 0000 ffff ffff ffff ffff
@@ -62,8 +61,8 @@ $ od -An -x -j54 -v -w30 image.bmp
  0000 0000 0000 ffff ffff ffff ffff ffff ffff 0000
 	   
 ```
+$ `od -An -x -j54 -v -w32 image.bmp`
 ```bash
->$ od -An -x -j54 -v -w32 image.bmp
  ffff ffff ffff ffff ffff ffff 0000 0000 0000 ffff ffff ffff ffff ffff ffff 0000
  ffff ffff ffff ffff ffff ffff 0000 0000 0000 ffff ffff ffff ffff ffff ffff 0000
  ffff ffff ffff ffff ffff ffff 0000 0000 0000 ffff ffff ffff ffff ffff ffff 0000
@@ -89,8 +88,8 @@ Sur chaque ligne on doit avoir un multiple de 4, or ici on a 30 qui ne l'est pas
  ffffff ffffff ffffff ffffff 000000 000000 ffffff ffffff ffffff ffffff XXXX
  ffffff ffffff ffffff ffffff 000000 000000 ffffff ffffff ffffff ffffff XXXX
 ```
+$ `od --endian=big -Ax -tx2 -j54 -v -w32 image.1.bmp `
 ```bash
-$ od --endian=big -Ax -tx2 -j54 -v -w32 image.1.bmp 
 000036 ffff ffff ffff ffff ffff ffff 0000 0000 0000 ffff ffff ffff ffff ffff ffff 0000
 000056 ffff ffff 0000 ff00 00ff ffff 0000 0000 0000 ffff ffff ffff ffff ffff ffff 0000
 000076 ffff ffff 0000 ff00 00ff ffff 0000 0000 0000 ffff ffff ffff ffff ffff ffff 0000
@@ -105,7 +104,7 @@ $ od --endian=big -Ax -tx2 -j54 -v -w32 image.1.bmp
 $
 ```
 
-##EXO2: __ chasse au trésor __
+## EXO2: __ chasse au trésor __
 
 $ `od --endian=big -Ax -x -j54 -v -w32 secret.bmp | tac` # puis regroupement en 3octect à la main
 ```basg
