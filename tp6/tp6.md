@@ -47,6 +47,6 @@
        regret
        ```
 
-   10.
-   11.
+   10. `rm -f ../fait/Abandon`  <kbd>RET</kbd>
+   11. 
    12.
