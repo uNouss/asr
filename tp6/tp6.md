@@ -11,7 +11,7 @@
 	  ../tp6/
 	  ├── fs
 	  │   ├── a-faire
-	  │   │   ├── Algo
+	  │   │   ├── Algo2
 	  │   │   ├── Anglais
 	  │   │   └── Math
 	  │   └── fait
@@ -21,10 +21,32 @@
 4.
    1. `cd fs/a-faire/` pour se déplacer dans le répertoire **a-faire**
    2. `ls /home/infoetu/sowy/asr/tp6/fs/fait/Gestion` qui donne **/home/infoetu/sowy/asr/tp6/fs/fait/Gestion**
-   3. `ls ./Algo` retourne **./Algo**
-   4. `ls ../a-faire/Anglais` retourne **../a-faire/Anglais**
+   3. `ls ../fait/Algo` retourne **../fait/Algo**
+   4. `ls ./Anglais` retourne **./Anglais**
 5. Vérification des chémins trouvé plus haut à la question **4**
    * `cat /home/infoetu/sowy/asr/tp6/fs/fait/Gestion`
-   * `cat ./Algo`
-   * `cat ../a-faire/Anglais`
+   * `cat ../fait/Algo`
+   * `cat ./Anglais`
 6.
+   1. `cp Algo2 Algorithmique`
+   2. `cp Algo2 ../fait/Algo`
+   3. `mv Anglais English`
+   4. `mv English ../fait/`
+   5. `ln Math ../fait/Abandon`
+   6. `echo -e "\nregret" > ../fait/Abandon`
+   7. `cat Math` <kbd>RET</kbd>
+      ```txt
+      
+      regret
+      ```
+
+   8.  `ln -s ../fait/Abandon Persevere` 
+   9.  `cat Persevere` cat Persevere
+       ```txt
+       
+       regret
+       ```
+
+   10.
+   11.
+   12.
