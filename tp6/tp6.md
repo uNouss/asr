@@ -41,7 +41,7 @@
       ```
 
    8.  `ln -s ../fait/Abandon Persevere` 
-   9.  `cat Persevere` cat Persevere
+   9.  `cat Persevere`  <kbd>RET</kbd>
        ```txt
        
        regret
