@@ -48,5 +48,20 @@
        ```
 
    10. `rm -f ../fait/Abandon`  <kbd>RET</kbd>
-   11. 
-   12.
+   11. `cat Persevere`  <kbd>RET</kbd>
+       ```bash
+       cat: Persevere: Aucun fichier ou dossier de ce type
+       ```
+   12. `cat Math`   <kbd>RET</kbd>
+	```bash
+
+       regret
+       ```
+   13.
+
+7. `ln Math /tmp/Sauvegarde`   <kbd>RET</kbd>
+   ```bash
+   ln: impossible de créer le lien direct « /tmp/Sauvegarde » → « Math »: Lien croisé de périphéque invalide
+   ```
+8. On ne peut pas faire de lien physique sur des partitions différentes. Pour cela il faut que les deux sois sur le même périphérique.
+   `ln -s Math /tmp/Sauvegarde`
