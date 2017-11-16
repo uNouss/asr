@@ -6,7 +6,6 @@
    ![filepipes](./catpipes.png)
 
 3.
-
    1. `cat pipes` pour afficher le contenu de pipes
    2. `cut -c1 pipes` pour afficher le premier caractère de chaque ligne du fichier pipes.
    3. `cut -c2- pipes` pour afficher sur chaque ligne tous les caractères sauf le premier caractère
@@ -18,8 +17,7 @@ contenant pas d’espace)
    8. `grep -i "tee" pipes` : afficher les lignes du fichier pipes contenant le mot tee quelque soit la hauteur des lettres (capitale ou minuscule) qui le
 composent,
 
-4. En combinant des filtres via des tubes écrivez maintenant les commandes permettant d’effectuer les actions suivantes :
- 
+4. En combinant des filtres via des tubes écrivez maintenant les commandes permettant d’effectuer les actions suivantes : 
    1. `cut -c2 pipes  | sort` : afficher dans l’ordre lexicographique le second caractère de chaque ligne du fichier pipes ,
    2. `sed -n '5p' pipes| tr "[:lower:]" "[:upper:]"` ou `tail -3 pipes | head -1`: afficher uniquement la 5ème ligne du fichier pipes en remplaçant toutes les lettres par leur équivalent en minuscules,
    3. `grep -w pour pipes | wc -l` : afficher le nombre de ligne du fichier pipes contenant exactement le mot _pour_,
