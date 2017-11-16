@@ -36,15 +36,15 @@ cinquième mot de chaque ligne.
 de cette liste est documenté dans la page **passwd(5)** . Le système gère des utilisateurs étudiants du département informatique,
 du département génie biologique, etc. En utilisant les tubes et des filtres écrivez les commandes permettant d’effectuer les
 actions suivantes :
-    1. ̀` :  afficher le nombre d’utilisateurs du système.
-    2. ̀` : afficher le nombre de prénoms différents parmi tous les utilisateurs.
-    3. ̀` : afficher le prénom le plus utilisé parmi les utilisateurs ainsi que le nombre d’utilisateurs portant ce prénom.
-    4. ̀` : sachant que les étudiants du département informatique ont leur répertoire principal dans /home/infoetu , afficher le
+    1. ̀getent passwd | wc -l` :  afficher le nombre d’utilisateurs du système.
+    2. ̀getent passwd | cut -d':' -f5 | cut -d' ' -f1 | tr [:lower:] [:upper:] | sort | uniq | wc -l` : afficher le nombre de prénoms différents parmi tous les utilisateurs.
+    3. ̀getent passwd | cut -d':' -f5 | cut -d' ' -f1 | tr [:lower:] [:upper:] | sort | uniq -c | sort -g | tail -n1` : afficher le prénom le plus utilisé parmi les utilisateurs ainsi que le nombre d’utilisateurs portant ce prénom.
+    4. ̀getent passwd | grep /home/infoetu | wc -l` : sachant que les étudiants du département informatique ont leur répertoire principal dans /home/infoetu , afficher le
 nombre d’étudiants inscrits au département informatique
-    5. ̀` : afficher le nombre d’étudiants inscrits au département informatique sur le terminal courant et la liste des prénoms et
+    5. ̀getent passwd | grep infoetu | cut -d: -f5 | tr ' ' \\t | tee /dev/pts/1 | wc -l ` : afficher le nombre d’étudiants inscrits au département informatique sur le terminal courant et la liste des prénoms et
 noms de ces étudiants sur un second terminal. Chaque ligne affichée sur ce second terminal devra comprendre le prénom
 d’un étudiant puis un caractère tabulation (`\t`) puis le nom de cet étudiant.
-    6. ̀` : afficher la lettre la plus souvent utilisée comme première lettre (majuscule) d’un prénom avec sa fréquence d’utilisation,
+    6. ̀getent passwd | cut -d: -f5 | cut -c1 | tr [:upper:] [:lower:] | sort | uniq -c| sort -g | tail -n1` : afficher la lettre la plus souvent utilisée comme première lettre (majuscule) d’un prénom avec sa fréquence d’utilisation,
     7. ̀` : sachant que tous les utilisateurs d’un même groupe ont leur répertoire principal dans un répertoire portant le nom de
 ce groupe (par exemple tous les enseignants, membres du groupe infoens , ont leur répertoire dans /home/infoens ),
 afficher le nombre de groupes unix principaux différents,
