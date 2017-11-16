@@ -45,12 +45,12 @@ nombre d’étudiants inscrits au département informatique
 noms de ces étudiants sur un second terminal. Chaque ligne affichée sur ce second terminal devra comprendre le prénom
 d’un étudiant puis un caractère tabulation (`\t`) puis le nom de cet étudiant.
     6. ̀getent passwd | cut -d: -f5 | cut -c1 | tr [:upper:] [:lower:] | sort | uniq -c| sort -g | tail -n1` : afficher la lettre la plus souvent utilisée comme première lettre (majuscule) d’un prénom avec sa fréquence d’utilisation,
-    7. ̀` : sachant que tous les utilisateurs d’un même groupe ont leur répertoire principal dans un répertoire portant le nom de
+    7. `getent passwd | cut -d/ -f3 | sort | uniq | wc -l` : sachant que tous les utilisateurs d’un même groupe ont leur répertoire principal dans un répertoire portant le nom de
 ce groupe (par exemple tous les enseignants, membres du groupe infoens , ont leur répertoire dans /home/infoens ),
 afficher le nombre de groupes unix principaux différents,
-    8. ̀` : afficher le nombre d’utilisateurs homonymes (noms identiques pour 2 utilisateurs).
+    8. ̀getent passwd | cut -d: -f5 | cut -d' ' -f2 | tr [:upper:] [:lower:] | sort | uniq -d | wc -l` : afficher le nombre d’utilisateurs homonymes (noms identiques pour 2 utilisateurs).
 
 2. En utilisant les tubes et des filtres écrivez les commandes permettant d’effectuer les actions suivantes :
-    - `` : afficher la liste des utilisateurs (uniquement leur login) s’étant connecté sur la machine. Cette liste devra être triée dans
+    - `last | cut -d' ' -f1 | sort | uniq -c | sort -rg` : afficher la liste des utilisateurs (uniquement leur login) s’étant connecté sur la machine. Cette liste devra être triée dans
 l’ordre décroissant du nombre de connexion,
-    - `` : afficher la liste des utilisateurs s’étant connecté juste avant un redémarrage (utilisateur reboot ) de la machine.
+    - `last | grep -A1 reboot | grep -ve -- | grep -v reboot | cut -d' ' -f1 | sort | uniq` : afficher la liste des utilisateurs s’étant connecté juste avant un redémarrage (utilisateur reboot ) de la machine.
