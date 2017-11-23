@@ -64,7 +64,7 @@
 
 
 | Commandes                                 |  t=0s  |  t=3s  |  t=6s  |
-|-------------------------------------------|: ----: |: -----:| -----: |
+|-------------------------------------------|------- |--------| ------ |
 |`echo A ; sleep 3 ; echo B`                |`A`     |`B$`    |``      |
 |`echo A ; sleep 3 & echo B`                |`AB`    |``      |``      |
 |`( echo A ; sleep 3 ) & echo B`            |`BA`    |``      |``      |
@@ -80,7 +80,7 @@
 ### Exercice 3: Les redirections d'entrées/sorties
 
 1. Sans utiliser la commande vi , ni un autre éditeur de texte, mais en utilisant la commande cat et l’opérateur > créez les fichiers fich1 et fich2 suivant :
-   - `cat > fich1`
+   - `cat 1> fich1 << TOTO`
    
      ![fich1](./fich1.png)
    - `cat > fich2`
