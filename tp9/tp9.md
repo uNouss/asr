@@ -76,3 +76,30 @@
 |`sleep 3 & echo A & ( sleep 3 ; echo B ) &`|`A`     |`$B`    |``      |
 
 4. Vérifiez vos réponses en exécutant les commandes de chacune des lignes.
+
+### Exercice 3: Les redirections d'entrées/sorties
+
+1. Sans utiliser la commande vi , ni un autre éditeur de texte, mais en utilisant la commande cat et l’opérateur > créez les fichiers fich1 et fich2 suivant :
+
+   - `cat > fich1`
+
+![fich1](./fich1.png)
+
+   - `cat > fich2`
+
+![fich2](./fich2.png)
+
+2. Lisez la page du manuel de mate-terminal (ou celle de x-terminal-emulator ) de façon à trouver comment vous pouvez lors du lancement de la commande spécifier un titre au terminal que vous démarrez. Ce titre devra être présent dans la barre de titre de la fenêtre démarrée. Essayez par exemple de démarrer un terminal ayant pour titre le mot toto : `mate-terminal -t TITRE`
+
+3. Démarrez 3 terminaux graphiques en utilisant la commande mate-terminal et les possibilités de démarrage en arrière-plan. Dans la suite de l’énoncé on désignera ces 3 terminaux par les alias A , B et C . Pour vous simplifier le travail donner comme titre à vos terminaux les alias spécifiés: `mate-terminal -t A &  mate-terminal -t B &  mate-terminal -t C &`
+
+4. Pour cette question vous devez saisir vos commandes uniquement dans le terminal A :
+   1. Identifiez pour chacun des terminaux le fichier associé: `tty` dans chacun des terminaux
+   2. Afficher le contenu du fichier fich1 dans le terminal B: `cat fich2 > /dev/pts/3`
+   3. Toujours en utilisant la commande cat , mais cette fois après avoir lu le manuel, créez le fichier fich3 constitué de la concaténation du contenu des fichiers fich1 et fich2 : `cat fich1 fich2 > fich3`
+   4. Lancez la commande `cat fich1 fich150` :
+      ![sortiecat](./sortiecat.png)
+      
+   5. Lancez la commande précédente en redirigeant la sortie standard dans le terminal B et la sortie d’erreur dans C : `cat fich1 > /dev/pts/3 fich150 2> /dev/pts/1`
+   6. Comment peut-on rediriger la sortie standard sur la sortie d’erreur ? : en utilisant `2>&1`
+   7. En utilisant la réponse à la question précédente refaites la question 5 en redirigeant le tout vers le terminal B : `cat fich1 fich150 >/dev/pts/3 2>&1`
