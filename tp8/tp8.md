@@ -10,7 +10,7 @@
    - dans le premier terminal : `cat >> /home/public/m1101/forum`
    - dans le second  terminal : `tail -f /home/puvlic/m1101/forum`
 
-5. Modifiez la commande de saisie , pour qu’elle ajoute en début de chacune des lignes lues votre login suivi de « : ». Le fait que pour la commande s de sed le caractère ^ représente le début d’une ligne et l’option -u de sed devraient vous aider: `cat | sed -u 's/^/USERS: /g' >> /home/public/m1101/forum`
+5. Modifiez la commande de saisie , pour qu’elle ajoute en début de chacune des lignes lues votre login suivi de « : ». Le fait que pour la commande s de sed le caractère ^ représente le début d’une ligne et l’option -u de sed devraient vous aider: `cat | sed -u -e "s/^/${USER}: /g" >> /home/public/m1101/forum`
 
 6. Créez un fichier nommé invisibles . Ce fichier devra contenir les logins de certains (au moins un) de vos camarades de groupe dont vous ne voulez pas voir les messages: `echo -e "toto\ntata\ntiti" > invisibles`
 
