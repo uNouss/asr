@@ -80,14 +80,10 @@
 ### Exercice 3: Les redirections d'entrées/sorties
 
 1. Sans utiliser la commande vi , ni un autre éditeur de texte, mais en utilisant la commande cat et l’opérateur > créez les fichiers fich1 et fich2 suivant :
-
    - `cat > fich1`
-
-![fich1](./fich1.png)
-
+     ![fich1](./fich1.png)
    - `cat > fich2`
-
-![fich2](./fich2.png)
+     ![fich2](./fich2.png)
 
 2. Lisez la page du manuel de mate-terminal (ou celle de x-terminal-emulator ) de façon à trouver comment vous pouvez lors du lancement de la commande spécifier un titre au terminal que vous démarrez. Ce titre devra être présent dans la barre de titre de la fenêtre démarrée. Essayez par exemple de démarrer un terminal ayant pour titre le mot toto : `mate-terminal -t TITRE`
 
