@@ -62,16 +62,17 @@
 
 3. Remplissez le tableau suivant, de façon à spécifier à quel moment le caractère A, le caractère B et le prompt du shell apparaîssent sur le terminal (par convention le caractère $ repésentera l’apparition du prompt) :
 
-|*Commandes*|  t=0s  |  t=3s  |  t=6s  |
-|-----------|: ----: |: -----:| -----: |
-|`echo A ; sleep 3 ; echo B`|`A`|`B$`|``|
-|`echo A ; sleep 3 & echo B`|`AB`|``|``|
-|`( echo A ; sleep 3 ) & echo B`|`BA`|``|``|
-|`echo A ; ( sleep 3 & echo B )`|`AB`|``|``|
-|`echo A ; ( sleep 3 ; echo B ) &`|`A`|`$B`|``|
-|`sleep 3 & echo A ; ( sleep 3 ; echo B )`|`A`|`B`|``|
-|`sleep 3 & echo A & ( sleep 3 ; echo B )`|`A`|`B$`|``|
-|`sleep 3 & echo A & ( sleep 3 & echo B ) &`|`AB`|``|``|
-|`sleep 3 & echo A & ( sleep 3 ; echo B ) &`|`A`|`$B`|``|
+
+| Commandes                                 |  t=0s  |  t=3s  |  t=6s  |
+|-------------------------------------------|: ----: |: -----:| -----: |
+|`echo A ; sleep 3 ; echo B`                |`A`     |`B$`    |``      |
+|`echo A ; sleep 3 & echo B`                |`AB`    |``      |``      |
+|`( echo A ; sleep 3 ) & echo B`            |`BA`    |``      |``      |
+|`echo A ; ( sleep 3 & echo B )`            |`AB`    |``      |``      |
+|`echo A ; ( sleep 3 ; echo B ) &`          |`A`     |`$B`    |``      |
+|`sleep 3 & echo A ; ( sleep 3 ; echo B )`  |`A`     |`B`     |``      |
+|`sleep 3 & echo A & ( sleep 3 ; echo B )`  |`A`     |`B$`    |``      |
+|`sleep 3 & echo A & ( sleep 3 & echo B ) &`|`AB`    |``      |``      |
+|`sleep 3 & echo A & ( sleep 3 ; echo B ) &`|`A`     |`$B`    |``      |
 
 4. Vérifiez vos réponses en exécutant les commandes de chacune des lignes.
