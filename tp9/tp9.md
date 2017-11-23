@@ -81,8 +81,10 @@
 
 1. Sans utiliser la commande vi , ni un autre éditeur de texte, mais en utilisant la commande cat et l’opérateur > créez les fichiers fich1 et fich2 suivant :
    - `cat > fich1`
+   
      ![fich1](./fich1.png)
    - `cat > fich2`
+   
      ![fich2](./fich2.png)
 
 2. Lisez la page du manuel de mate-terminal (ou celle de x-terminal-emulator ) de façon à trouver comment vous pouvez lors du lancement de la commande spécifier un titre au terminal que vous démarrez. Ce titre devra être présent dans la barre de titre de la fenêtre démarrée. Essayez par exemple de démarrer un terminal ayant pour titre le mot toto : `mate-terminal -t TITRE`
@@ -94,6 +96,7 @@
    2. Afficher le contenu du fichier fich1 dans le terminal B: `cat fich2 > /dev/pts/3`
    3. Toujours en utilisant la commande cat , mais cette fois après avoir lu le manuel, créez le fichier fich3 constitué de la concaténation du contenu des fichiers fich1 et fich2 : `cat fich1 fich2 > fich3`
    4. Lancez la commande `cat fich1 fich150` :
+
       ![sortiecat](./sortiecat.png)
       
    5. Lancez la commande précédente en redirigeant la sortie standard dans le terminal B et la sortie d’erreur dans C : `cat fich1 > /dev/pts/3 fich150 2> /dev/pts/1`
