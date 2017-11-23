@@ -100,5 +100,5 @@
       ![sortiecat](./sortiecat.png)
       
    5. Lancez la commande précédente en redirigeant la sortie standard dans le terminal B et la sortie d’erreur dans C : `cat fich1 > /dev/pts/3 fich150 2> /dev/pts/1`
-   6. Comment peut-on rediriger la sortie standard sur la sortie d’erreur ? : en utilisant `2>&1`
-   7. En utilisant la réponse à la question précédente refaites la question 5 en redirigeant le tout vers le terminal B : `cat fich1 fich150 >/dev/pts/3 2>&1`
+   6. Comment peut-on rediriger la sortie standard sur la sortie d’erreur ? : en utilisant `1>&2`
+   7. En utilisant la réponse à la question précédente refaites la question 5 en redirigeant le tout vers le terminal B : `cat fich1 fich150 2>/dev/pts/3 1>&2`
