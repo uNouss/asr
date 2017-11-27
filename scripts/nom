@@ -1,0 +1,5 @@
+#!/bin/bash
+LOGIN=$1
+NOM=$(getent passwd | grep "${LOGIN}" | cut -d':' -f5 | cut -d' ' -f2)
+echo "${NOM}"
+exit 0

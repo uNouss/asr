@@ -1,0 +1,6 @@
+#!/bin/bash
+DEPARTEMENT=$1
+NOM=$2
+LOGINS=$(getent passwd | grep -i "${DEPARTEMENT}" | grep -i "${NOM}" | cut -d':' -f1)
+echo "${LOGINS}"
+exit 0

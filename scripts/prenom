@@ -1,0 +1,4 @@
+#!/bin/bash
+LOGIN=$1
+PRENOM=$(getent passwd | grep "${LOGIN}" | cut -d':' -f5 | cut -d' ' -f1)
+echo "${PRENOM}"
