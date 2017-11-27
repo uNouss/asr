@@ -62,6 +62,7 @@ REGEX="https.*/wallpaper/[0-9]{2,9}$";
 NBPAGE=$(wget -qO - "${LINK}"  | grep -Eo "<h2>Page <span class=\"thumb-listing-page-num\">[0-9]</span> / [0-9]{1,6}</h2>" | grep -Eo "/\ [0-9]{1,6}" | cut -d' ' -f2);
 
 REQUIREMENT="lynx";
+
 PREFIX_COMMAND="";
 POSTFIX_COMMAND="";
 
