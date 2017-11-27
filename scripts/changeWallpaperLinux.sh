@@ -74,7 +74,6 @@ do
         #methode utilisatn lynx
         wget $(lynx -listonly -nonumbers -dump "${LINK}" | grep -Eio "${REGEX}" | grep -Eio "[0-9]{1,9}" | uniq  >"${TMPFILE}"; sed -n $(( RANDOM % $( wc -l <"${TMPFILE}" ) + 1 ))p "${TMPFILE}" | sed  's#^#'${PREFIX}'#;s/$/'${POSTFIX}'/') -O "${TMP}/${NAME}" && mv -f "${TMP}/${NAME}" "${DIR}/${NAME}" && rm -f "${TMP}/${NAME}";
         #echo "OK" ;
-        continue ;
     } || {
         #methode utilisant wget si lynx non disponible
         wget $(wget "${LINK}" -O - 2>/dev/null | grep -oP 'href="\Khttps:.+?"' | sed 's/"//' | grep -Eio "${REGEX}" | grep -Eio "[0-9]{1,9}" | uniq  >"${TMPFILE}"; sed -n $(( RANDOM % $( wc -l <"${TMPFILE}" ) + 1 ))p "${TMPFILE}" | sed  's#^#'${PREFIX}'#;s/$/'${POSTFIX}'/') -O "${TMP}/${NAME}" && mv -f "${TMP}/${NAME}" "${DIR}/${NAME}" && rm -f "${TMP}/${NAME}";
