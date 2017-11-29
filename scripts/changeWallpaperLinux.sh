@@ -66,6 +66,9 @@ REQUIREMENT="lynx";
 PREFIX_COMMAND="";
 POSTFIX_COMMAND="";
 
+
+test -d "${DIR}" || mkdir -p "${DIR}"
+
 while [ 1 ]
 do
     PAGE=$(( ( RANDOM % ${NBPAGE} ) + 1 ));
