@@ -86,3 +86,4 @@ do
 
     sleep "${INTERVAL}";
 done
+#gsettings set org.mate.background picture-filename '/path/to/image.jpg'
