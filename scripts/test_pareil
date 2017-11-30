@@ -1,0 +1,8 @@
+#!/bin/bash
+pareil a a     && echo ok
+pareil ab ab   && echo ok
+pareil 1 1     && echo ok
+pareil -e -e   && echo ok
+pareil a ab    || echo ko
+pareil a b     || echo ko
+pareil ab a    || echo ko

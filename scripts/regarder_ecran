@@ -1,0 +1,47 @@
+#!/bin/sh
+
+# Author: Bruno Beaufils
+# Created: 21 septembre 2007
+# Modified: 21 septembre 2007
+# Version: $Id$
+# Depends: 
+
+# Doc: Ce script permet simplement de démarrer xvncviewer en mode plein écran
+# de vision simple pour suivre ce qu'un enseignant fait sur une machine.
+
+set -e
+#set -x
+
+# Les constantes
+LOCAL_NAME="`basename $0`"
+
+# Aide
+usage ()
+{
+    cat <<POD 1>&2
+
+usage: ${LOCAL_NAME} [-h] machine
+
+machine correspond au nom de la machine sur laquelle l'enseignant à lancer la
+diffusion pour faire une démonstration.
+
+POD
+}
+
+# Traitement des arguments de la ligne de commandes
+if test "x$1" = "x-h" -o $# -ne 1 ; then
+    usage && exit 2
+else
+    machine=$1
+fi
+
+# Lancement de vncviewer
+xvnc4viewer -Shared -ViewOnly ${machine}
+
+# Local Variables:
+# mode: sh
+# time-stamp-start: "Modified: "
+# time-stamp-end: "$"
+# time-stamp-format: "%02d %:b %:y"
+# time-stamp-active: t
+# End:
