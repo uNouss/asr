@@ -1,0 +1,11 @@
+#!/bin/bash
+
+pareil              || echo echec
+pareil a            || echo echec
+pareil a b c        || echo echec
+pareil a a a        || echo echec
+pareil "to to" to   || echo echec
+
+pareil 1 1          && echo ok
+pareil toto toto    && echo ok
+pareil -e -e        && echo ok

@@ -1,8 +1,8 @@
 #!/bin/bash
-pareil a a     && echo ok
-pareil ab ab   && echo ok
-pareil 1 1     && echo ok
-pareil -e -e   && echo ok
-pareil a ab    || echo ko
-pareil a b     || echo ko
-pareil ab a    || echo ko
+echo "a = a   : " $(pareil a a       && echo ok)
+echo "ab = ab : " $(pareil ab ab     && echo ok)
+echo "1 = 1   : " $(pareil 1 1       && echo ok)
+echo "-e = -e : " $(pareil -e -e     && echo ok)
+echo "a = ab  : " $(pareil a ab      || echo ko)
+echo "a = b   : " $(pareil a b       || echo ko)
+echo "ab = a  : " $(pareil ab a      || echo ko)

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+pareil $# 0
+

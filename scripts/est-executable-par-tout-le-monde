@@ -1,3 +1,3 @@
 #!/bin/bash
-echo $1 | grep -qxe $2 && echo $2 | grep -qxe $1;
-exit 0;
+pareil $# 1 && pareil xxx $(ls -ld $1 | cut -c4,7,10) || echo "argument manquant"
+#pareil $# 1 && ls -ld $1 | cut -c4,7,10 | grep -qx xxx

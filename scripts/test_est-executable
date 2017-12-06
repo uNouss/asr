@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "$HOME/.bashrc            : " $(est-executable $HOME/.bashrc             || echo non)
+echo "$HOME/asr/tp12/tp12.md   : " $(est-executable $HOME/asr/tp12/tp12.md    || echo non)
+echo "$HOME/asr/scripts/pareil : " $(est-executable $HOME/asr/scripts/pareil  && echo oui)

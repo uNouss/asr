@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "$HOME        : "         $(est-repertoire $HOME          && echo oui)
+echo "$HOME/.bashrc: " $(est-repertoire $HOME/.bashrc  || echo non)

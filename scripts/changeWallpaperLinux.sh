@@ -75,15 +75,15 @@ do
     LINK="https://alpha.wallhaven.cc/search?q=${REQUEST}&categories=${CATEGORY}&purity=${PURITY}&${VARIABLE}=${RESOLUTION}&sorting=${SORTING}&order=${ORDER}&page=${PAGE}";
     echo "${LINK}";
     command -v "${REQUIREMENT}" && {
-        #methode utilisatn lynx
-        wget $(lynx -listonly -nonumbers -dump "${LINK}" | grep -Eio "${REGEX}" | grep -Eio "[0-9]{1,9}" | uniq  >"${TMPFILE}"; sed -n $(( RANDOM % $( wc -l <"${TMPFILE}" ) + 1 ))p "${TMPFILE}" | sed  's#^#'${PREFIX}'#;s/$/'${POSTFIX}'/') -O "${TMP}/${NAME}" && mv -f "${TMP}/${NAME}" "${DIR}/${NAME}" && rm -f "${TMP}/${NAME}";
-        #echo "OK" ;
-    } || {
-        #methode utilisant wget si lynx non disponible
-        wget $(wget "${LINK}" -O - 2>/dev/null | grep -oP 'href="\Khttps:.+?"' | sed 's/"//' | grep -Eio "${REGEX}" | grep -Eio "[0-9]{1,9}" | uniq  >"${TMPFILE}"; sed -n $(( RANDOM % $( wc -l <"${TMPFILE}" ) + 1 ))p "${TMPFILE}" | sed  's#^#'${PREFIX}'#;s/$/'${POSTFIX}'/') -O "${TMP}/${NAME}" && mv -f "${TMP}/${NAME}" "${DIR}/${NAME}" && rm -f "${TMP}/${NAME}";
-        #echo "KO" ;
+    #methode utilisatn lynx
+    wget $(lynx -listonly -nonumbers -dump "${LINK}" | grep -Eio "${REGEX}" | grep -Eio "[0-9]{1,9}" | uniq  >"${TMPFILE}"; sed -n $(( RANDOM % $( wc -l <"${TMPFILE}" ) + 1 ))p "${TMPFILE}" | sed  's#^#'${PREFIX}'#;s/$/'${POSTFIX}'/') -O "${TMP}/${NAME}" && mv -f "${TMP}/${NAME}" "${DIR}/${NAME}" && rm -f "${TMP}/${NAME}";
+    #echo "OK" ;
+} || {
+#methode utilisant wget si lynx non disponible
+wget $(wget "${LINK}" -O - 2>/dev/null | grep -oP 'href="\Khttps:.+?"' | sed 's/"//' | grep -Eio "${REGEX}" | grep -Eio "[0-9]{1,9}" | uniq  >"${TMPFILE}"; sed -n $(( RANDOM % $( wc -l <"${TMPFILE}" ) + 1 ))p "${TMPFILE}" | sed  's#^#'${PREFIX}'#;s/$/'${POSTFIX}'/') -O "${TMP}/${NAME}" && mv -f "${TMP}/${NAME}" "${DIR}/${NAME}" && rm -f "${TMP}/${NAME}";
+#echo "KO" ;
     }
 
+    gsettings set org.mate.background picture-filename '/path/to/image.jpg'
     sleep "${INTERVAL}";
 done
-#gsettings set org.mate.background picture-filename '/path/to/image.jpg'

@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "a${1}a" | grep -xqw "a${2}a";
+echo $# | grep -xq 2 && echo "a${1}a" | grep -xqw "a${2}a";
