@@ -1,11 +1,12 @@
 #!/bin/bash
 
-est-repertoire $1  || exit 1
+est-repertoire $1  || (echo 'Error: is not a directory' 1>&2 && exit 1)
 
 cd $1
 
-for fichier in *
+for file in *
 do
-    est-repertoire $fichier && echo $fichier
+    #echo ${file}  # DEBUG
+    est-repertoire ${file} && echo ${file}
 done
 exit 0
