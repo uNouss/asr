@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo -e "nom de la commande  \$0 = $0\n"
+
+echo -e "nombre d'arguments  \$# = $#\n"
+
+idx=1
+for arg in $*
+do
+    echo "argument numéro  $idx   \$${idx} = $arg"
+    let idx=idx+1
+done

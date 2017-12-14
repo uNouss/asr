@@ -1,0 +1,7 @@
+#!/bin/bash
+idx=1
+while ! (pareil 11 $idx)
+do
+    echo $idx
+    idx=$(expr $idx + 1)
+done

@@ -1,0 +1,15 @@
+
+#!/bin/bash
+
+echo -e "nom de la commande  \$0 = $0\n"
+
+echo -e "nombre d'arguments  \$# = $#\n"
+
+idx=1
+nbarg="$#"
+while pareil 1 $(expr $idx \<= $nbarg)
+do
+    echo "argument numéro  $idx  \$${idx} = $1"
+    let idx=idx+1
+    shift
+done

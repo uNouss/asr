@@ -1,0 +1,8 @@
+#!/bin/bash
+
+i=1
+while ! pareil $i 10
+do
+	echo $i
+	i=$(expr $i + 1)
+done

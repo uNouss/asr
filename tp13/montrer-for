@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo 'nom de la commande 	$0 = '$(basename $0)
+echo 
+echo 'nombre d'\''arguments $# = '$#
+echo
+
+n=1
+for arg in "$@"
+do
+	echo "argument numero $n "\$"$n = $arg"
+	n=$(expr $n + 1)
+done

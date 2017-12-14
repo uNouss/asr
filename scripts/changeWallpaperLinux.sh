@@ -84,6 +84,7 @@ wget $(wget "${LINK}" -O - 2>/dev/null | grep -oP 'href="\Khttps:.+?"' | sed 's/
 #echo "KO" ;
     }
 
-    gsettings set org.mate.background picture-filename '/path/to/image.jpg'
+    gsettings set org.mate.background picture-filename "/usr/share/backgrounds/mate/abstract/Arc-Colors-Transparent-Wallpaper.png"
+    gsettings set org.mate.background picture-filename "${DIR}/${NAME}"
     sleep "${INTERVAL}";
 done

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo 'nom de la commande 	$0 = '$(basename $0)
+echo 
+echo 'nombre d'\''arguments $# = '$#
+echo
+
+nb_args=$(expr $# + 1) 
+
+i=1
+while ! pareil $i $nb_args   
+do
+	echo 'argument numero $'"${i} =  $1"
+	i=$(expr $i + 1)
+	shift
+done

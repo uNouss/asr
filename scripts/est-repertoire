@@ -1,3 +1,3 @@
 #!/bin/bash
-pareil $# 1 && pareil d $(ls -ld $1 | cut -c1) || echo "argument manquant"
+pareil $# 1 && pareil d $(ls -ld $1 | cut -c1)
 #pareil $# 1 && cd $1 > /dev/null 2>&1
