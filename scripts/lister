@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 is_path=false
 rep_l=" "
 
