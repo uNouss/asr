@@ -1,0 +1,16 @@
+#!/bin/bash
+
+NEWPATH=$(echo "${PATH}" | tr ':' ' ')
+
+for DIR in ${NEWPATH}
+do
+    #echo ${DIR}  # DEBUG
+    for file in ${DIR}/*
+    do
+        if est-executable ${file}
+        then
+            echo ${file}
+        fi
+    done
+done
+exit 0
