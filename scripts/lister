@@ -20,6 +20,7 @@ do
     fi
     shift
 done
+
 ${is_path} && lister-executables
 
 for rep in ${rep_l}
