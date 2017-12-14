@@ -1,0 +1,52 @@
+#!/bin/bash
+
+
+is_path=false
+rep_l=" "
+
+while ! pareil $# 0
+do
+    if pareil "$1" "--path"
+    then
+        is_path=true
+        est-vide $rep_l || { echo 'Error: --path and --rep at the time' 1>&2 && exit 1; }
+    elif pareil "$1" "--repertoires"
+    then
+        ${is_path} && { echo 'Error: --path already entered' 1>&2 && exit 1; }
+        shift
+        pareil $# 0 && { echo 'Error: No Rep given after' 1>&2 && exit 1; }
+        rep_l="${rep_l} $1"
+    else
+        { echo 'Error: Argument'" $1 " 'not authorized' 1>&2 && exit 1; }
+    fi
+    shift
+done
+${is_path} && lister-executables
+
+for rep in ${rep_l}
+do
+    lister-repertoires ${rep}
+done
+
+exit 0
+
+#pareil 0 $# && { echo 'Error: no argument' 1>&2 && exit 1; }
+#
+#
+#idx=1
+#fin=$#
+#echo ${fin}
+#
+#if pareil $1 "--repertoires"
+#then
+#    while pareil 1 $(expr ${idx} \<= ${fin})
+#    do
+#        echo ${idx}
+#        idx=$(( idx + 2 ))
+#    done
+#elif pareil $1 "--path"
+#then
+#    echo "path"
+#fi
+#
+#exit 0

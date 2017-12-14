@@ -1,6 +1,6 @@
 #!/bin/bash
 
-est-repertoire $1  || (echo 'Error: is not a directory' 1>&2 && exit 1)
+est-repertoire $1  || { echo 'Error: is not a directory' 1>&2 && exit 1; }
 
 cd $1
 
