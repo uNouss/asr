@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#echo $# #DEBUG
+
+pareil 0 $# && { echo 'Error: argument not Found' 1>&2 && exit 1; }
+
+getent group | grep -q $1 || { echo 'Error: Groupe not Found' 1>&2 && exit 1; }
+getent group | grep $1 | cut -d: -f4 | tr ',' '\n'
+
+#pour lister les identités des étudiants d'un groupe donné
+#for etu in $(etudiants GROUPE); do identite $etu; done

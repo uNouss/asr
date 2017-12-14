@@ -1,0 +1,9 @@
+#!/bin/bash
+
+lasalle=${1:-$(salle)}
+
+for num in $(seq -w 1 26)
+do
+    echo ${lasalle}${num}
+done
+exit 0

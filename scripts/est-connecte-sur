@@ -1,0 +1,5 @@
+#!/bin/bash
+
+LOGIN=${1}
+MACHINE=${2}
+
