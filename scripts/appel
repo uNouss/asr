@@ -2,12 +2,14 @@
 
 GRPE=${1}
 SALLE=${2:-$(salle)}
-
-LOGINS=$(etudiants ${GRPE} || { echo })
+etudiants ${GRPE} >/dev/null || { echo "Error: Groupe Inexistant"; exit 1; }
+LOGINS=$(etudiants ${GRPE})
 
 for etu in ${LOGINS}
 do
-    identite ${etu}
+    if ( ! est-connecte-dans ${etu} )
+    then
+        identite ${etu}
+    fi
 done
-
 exit 0

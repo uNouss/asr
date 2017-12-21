@@ -1,7 +1,9 @@
 #!/bin/bash
 
+pareil $# 0 && { echo "Error: login obligatoire"; exit 1; }
+
 LOGIN=${1}
-MACHINE=${2:$(hostname)}
+MACHINE=${2:-$(hostname)}
 
 echo $(ssh ${MACHINE} users) | tr ' ' '\n' | grep -q -x -w ${LOGIN}
 

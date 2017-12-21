@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pareil $# 0 && { echo "Error: login obligatoire"; exit 1; }
+
 if pareil $1 "-m"
 then
     LOGIN=${2}
@@ -11,7 +13,7 @@ else
     SHOW=0
 fi
 
-for pc in $(machines | tr '\n' ' ')
+for pc in $(machines ${lasalle})
 do
     if est-connecte-sur ${LOGIN} ${pc}
     then

@@ -2,7 +2,7 @@
 
 #echo $# #DEBUG
 
-pareil 0 $# && { echo 'Error: argument not Found' 1>&2 && exit 1; }
+pareil 0 $# && { echo 'Error: group obligatoire' 1>&2 && exit 1; }
 
 getent group | grep -q $1 || { echo 'Error: Groupe not Found' 1>&2 && exit 1; }
 getent group | grep $1 | cut -d: -f4 | tr ',' '\n'
