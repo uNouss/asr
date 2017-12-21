@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if pareil $1 "-m"
+then
+    LOGIN=${2}
+    lasalle=${3:-$(salle)}
+    SHOW=1;
+else
+    LOGIN=${1}
+    lasalle=${2:-$(salle)}
+    SHOW=0
+fi
+
+for pc in $(machines | tr '\n' ' ')
+do
+    if est-connecte-sur ${LOGIN} ${pc}
+    then
+        pareil ${SHOW} 1  && echo "${LOGIN} est connecté sur ${pc}"
+        exit 0
+    fi
+done

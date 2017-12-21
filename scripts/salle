@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo $(hostname) | tr -d [[:digit:]]
+hostname | tr -d [[:digit:]]

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+GRPE=${1}
+SALLE=${2:-$(salle)}
+
+LOGINS=$(etudiants ${GRPE} || { echo })
+
+for etu in ${LOGINS}
+do
+    identite ${etu}
+done
+
+exit 0

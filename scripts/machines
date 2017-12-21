@@ -4,6 +4,18 @@ lasalle=${1:-$(salle)}
 
 for num in $(seq -w 1 26)
 do
-    echo ${lasalle}${num}
+    #ajour ping pour tester que machine existe
+    machine=${lasalle}${num}
+    ssh ${machine} hostname 2>/dev/null 1>&2
+    if pareil $? 0
+    then
+        echo ${machine}
+    #else
+    #    exit 0
+    fi
+    #if ping -qc 1 ${machine} >/dev/null 2>&1
+    #then
+    #    echo ${machine}
+    #fi
 done
 exit 0

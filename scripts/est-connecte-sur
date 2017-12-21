@@ -1,5 +1,7 @@
 #!/bin/bash
 
 LOGIN=${1}
-MACHINE=${2}
+MACHINE=${2:$(hostname)}
+
+echo $(ssh ${MACHINE} users) | tr ' ' '\n' | grep -q -x -w ${LOGIN}
 
