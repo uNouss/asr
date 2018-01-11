@@ -1,4 +1,5 @@
 #!/bin/bash
+pareil $# 0 || { echo "param absent"; exit 1; }
 LOGIN=$1
 PRENOM=$(getent passwd | grep "${LOGIN}" | cut -d':' -f5 | cut -d' ' -f1)
 echo "${PRENOM}"

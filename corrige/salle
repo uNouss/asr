@@ -1,0 +1,4 @@
+#!/bin/bash
+
+hostname | tr -d [0-9]
+

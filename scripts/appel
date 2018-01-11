@@ -7,7 +7,7 @@ LOGINS=$(etudiants ${GRPE})
 
 for etu in ${LOGINS}
 do
-    if ( ! est-connecte-dans ${etu} )
+    if ( ! est-connecte-dans ${etu} ${SALLE} )
     then
         identite ${etu}
     fi

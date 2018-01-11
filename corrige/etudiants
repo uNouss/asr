@@ -1,0 +1,16 @@
+#!/bin/bash
+
+
+# Exit "1" (echec) si le premier (et seul) parametre est vide
+est-vide $1 && exit 1
+
+# On regarde si le groupe existe
+getent group |cut -d: -f1 |grep -xq $1
+
+# Exit "1" (echec) si le groupe n'existe pas
+! pareil $? 0 && exit 1
+
+# On fait le bon cut pour extraire la liste des logins du groupe
+getent group |grep -w $1 |cut -d: -f4 |tr , ' '
+
+

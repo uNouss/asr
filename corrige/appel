@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Controle du parametre "group" si présent sinon echec de la commande
+est-vide $1 && exit 1
+groupe=$1
+
+# Controle du parametre de salle, si non présent, affecter la salle courante de la commande
+sal=$2
+est-vide $2 && sal=$(salle)
+
+
+# Nous avons le groupe ...
+# Nous explorons tous les étudiants du groupe (via la commmande "etudiants")
+# Pour chaque etudiant du groupe, nous verifions s'il est connecté sur une des amchines de la salle
+# Dans le cas ou il n'est pas connecté, alors il est abscent, dans ce cas ci ... on l'affiche
+for login in $(etudiants $groupe)
+do
+    if ! est-connecte-dans $login $sal
+    then
+        prenom-nom $login
+    fi
+done

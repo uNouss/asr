@@ -1,0 +1,10 @@
+#!/bin/bash
+
+m=$1
+
+est-vide $1 && m=$(salle)
+
+for i in $(seq -w 1 26)
+do
+    echo $m${i}
+done

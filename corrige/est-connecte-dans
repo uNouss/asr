@@ -1,0 +1,29 @@
+#!/bin/bash
+
+
+# Verification de si le parametre "-m" a été passé !
+machine=false
+pareil $1 -m && machine=true && shift
+
+# Controle du parametre Login si présent sinon echec de la commande
+est-vide $1 && exit 1
+login=$1
+
+# Controle du parametre de salle, si non présent, affecter la salle courante de la commande
+sal=$2
+est-vide $2 && sal=$(salle)
+
+# On cherche sur toute les machines de la salle si l'utilisateur avec le login (login) est connecté.
+for m in $(machines $sal)
+do
+    if est-connecte-sur $login $m
+    then
+        $machine && echo $m
+        exit 0
+    fi
+
+done
+
+exit 1
+
+

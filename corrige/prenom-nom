@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Exit 1 (echec) si le parametre est vide
+! pareil $# 1 && exit 1
+
+# Renvoi du nom prenom correspondant
+# On voit ici une autre maniére d'utiliser la commande "getent" sans utiliser de grep 
+# mais directement en donnant en parametre le login 
+# (cela marche aussi pour la commande precedent "getent group" en donnant le groupe en parametre)
+getent passwd $1 |cut -d : -f 5
+

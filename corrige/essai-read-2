@@ -1,0 +1,15 @@
+#!/bin/bash
+
+cpt=0
+while read ligne
+do
+    cpt=$(expr $cpt + 1)
+    
+    if ! pareil $cpt 1 && ! pareil $cpt 3 
+    then
+        echo $ligne
+    fi
+done
+
+
+echo "fin du programme"

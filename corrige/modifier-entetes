@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo RFC5322
+
+
+pareil $(basename $0) modifier-entetes && echo "MODIF"
+
+pareil "$1" "--stdin" && cat

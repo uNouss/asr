@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Controle des parametre d'entres
+est-vide $1 && exit 1
+est-vide $2 && exit 1
+
+machine=$2
+
+# On execute sur la machine donnée en parametre la commande "Who" (voir son man)
+# La commande who permet de savoir tous les utilisateurs connectés sur une machinne donnée 
+# au moment de l'execution de la commande.
+ssh $machine who 2>/dev/null |cut -d ' ' -f 1 |grep -xq $1 2>/dev/null
+
+

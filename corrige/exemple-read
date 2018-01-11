@@ -1,0 +1,13 @@
+#!/bin/bash
+
+read ligne1
+
+if ! read ligne2
+then
+    echo erreur
+    exit 1
+fi
+
+echo ligne1 : $ligne1
+
+echo ligne2 : $ligne2
