@@ -1,0 +1,13 @@
+#!/bin/bash
+
+for fgbg in 38 48
+do
+    for col in {0..255}
+    do
+        printf "\e[1;${fgbg};5;%sm12+  %3s  \e[0m" $col $col
+        if [ $((($col + 1) % 6)) == 4 ]
+        then
+            echo
+        fi
+    done
+done
