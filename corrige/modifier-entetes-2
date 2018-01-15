@@ -1,7 +1,7 @@
 #!/bin/bash
 
 modifier=false
-pareil $(basename $0) "modifier-entetes" && modifier=true
+pareil $(basename $0) "modifier-entetes-2" && modifier=true
 
 pareil "$1" "--stdin" && cat
 
@@ -70,27 +70,35 @@ do
     elif pareil $champ "To:"
     then
         ! $is_to && echo $champ $valeur
-          $is_to && $modifier && echo $champ $new_to
+         # $is_to && $modifier && echo $champ $new_to
         
     elif pareil $champ "Cc:"
     then
         ! $is_cc && echo $champ $valeur
-          $is_cc && $modifier && echo $champ $new_cc
+         # $is_cc && $modifier && echo $champ $new_cc
 
     elif pareil $champ "Subject:"
     then
         ! $is_subject && echo $champ $valeur
-          $is_subject && $modifier && echo $champ $new_subject
+         # $is_subject && $modifier && echo $champ $new_subject
 
     elif pareil $champ "Keywords:"
     then
         ! $is_keywords && echo $champ $valeur
-          $is_keywords && $modifier && echo $champ $new_keywords
+         # $is_keywords && $modifier && echo $champ $new_keywords
     fi
-
     read champ valeur
 
 done
+
+if $modifier 
+then 
+    $is_to && echo "To: $new_to"
+    $is_cc && echo "Cc: $new_cc"
+    $is_subject && echo "Subject: $new_subject"
+    $is_keywords && echo "Keywords: $new_keywords"
+fi 
+
 
 
 echo ""     # Affichage de la ligne vide

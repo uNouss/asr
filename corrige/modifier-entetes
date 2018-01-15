@@ -1,8 +1,99 @@
 #!/bin/bash
 
-echo RFC5322
-
-
-pareil $(basename $0) modifier-entetes && echo "MODIF"
+modifier=false
+pareil $(basename $0) "modifier-entetes" && modifier=true
 
 pareil "$1" "--stdin" && cat
+
+
+
+# Traitement des options de la ligne de commandes 
+# Si le script a été appelé avec modifier (modifier=true)
+# on fait attention a aussi prendre en compte la valeur de l'arguement
+# apres chaque parametre de la ligne de commande (e.g. --to <val_to>) 
+
+is_to=false
+is_cc=false
+is_subject=false
+is_keywords=false
+
+while ! est-vide $1
+do
+    if pareil "$1" "--to"
+    then
+        is_to=true
+        $modifier && shift && new_to="$1"
+    elif pareil "$1" "--cc"
+    then
+        is_cc=true
+        $modifier && shift && new_cc="$1"
+    elif pareil "$1" "--subject"
+    then
+        is_subject=true
+        $modifier && shift && new_subject="$1"
+    elif pareil "$1" "--keywords"
+    then
+        is_keywords=true
+        $modifier && shift && new_keywords="$1"
+    else
+        echo "$0 : Erreur option inconnue: $1" 1>&2
+        exit 1
+    fi
+
+    shift
+done
+
+
+# Parsing et traitement des entetes
+# On utilise une boucle avec un "read" jusqu'à trouver la ligne vide
+# la ligne vide indique la fin de l'entetes du message email
+# 
+# on utilise un read avec "read champ valeur" afin que le read subdivise lui meme la ligne lors d'un espace
+# on test afin de voir quel est le type de champ qu'on a trouvé
+# puis, on regarde si on a bien recu un argument sur la ligne de commande (e.g. --xx)
+# si oui, on regarde si on est dans le cas "filtrer-entetes" ou "modifier-entetes" afin de décider de si on doit 
+# ne pas afficher ou alors afficher en modifiant la valeur
+
+read champ valeur   # on fait un premier read afin de rentrer dans la boucle
+
+while ! est-vide $champ
+do
+
+    if pareil $champ "From:"      # From est un champ toujours affiché
+    then
+        echo $champ $valeur
+
+    elif pareil $champ "Date:"    # Date est un champ toujours affiché
+    then
+        echo $champ $valeur
+
+    elif pareil $champ "To:"
+    then
+        ! $is_to && echo $champ $valeur
+          $is_to && $modifier && echo $champ $new_to
+        
+    elif pareil $champ "Cc:"
+    then
+        ! $is_cc && echo $champ $valeur
+          $is_cc && $modifier && echo $champ $new_cc
+
+    elif pareil $champ "Subject:"
+    then
+        ! $is_subject && echo $champ $valeur
+          $is_subject && $modifier && echo $champ $new_subject
+
+    elif pareil $champ "Keywords:"
+    then
+        ! $is_keywords && echo $champ $valeur
+          $is_keywords && $modifier && echo $champ $new_keywords
+    fi
+
+    read champ valeur
+
+done
+
+
+echo ""     # Affichage de la ligne vide
+cat         # Corps du message
+
+

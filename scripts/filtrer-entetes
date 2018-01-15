@@ -1,0 +1,87 @@
+#!/bin/bash
+
+is_to=false
+is_cc=false
+is_sub=false
+is_key=false
+
+modifier=false
+pareil $(basename $0) "modifier-entetes" && modifier=true
+
+pareil "$1" "--stdin" && cat
+
+while ! est-vide $1
+do
+    if pareil "$1" "--to"
+    then
+        is_to=true
+        $modifier && shift && to="$1"
+
+
+while ! est-vide $1
+do
+    case "$1" in
+    --to)
+        $modifier && shift && to="$1"
+        is_to=true
+        ;;
+    --cc)
+        $modifier && shift && cc="$1"
+        is_cc=true
+        ;;
+    --subject)
+        $modifier && shift && sub="$1"
+        is_sub=true
+        ;;
+    --keywords)
+        $modifier && shift && key="$1"
+        is_key=true
+        ;;
+    *)
+        echo "$0: Erreur option inconnue $1" 1>&2
+        exit 1
+        ;;
+    esac
+    shift
+done
+
+
+read champ valeur #on fait un premier read afin de rentrer dans la boucler
+# read champ valeur RET TO: tototiti fin saisie echo $champ=To: et $valeur=tototiti
+
+while ! est-vide $champ
+do
+    if pareil $champ "From:"
+    then
+        echo $champ $valeur
+    elif pareil $champ "Date:"
+    then
+        echo $champ $valeur
+##
+    elif pareil $champ "To:"
+    then
+        ! $is_to && echo $champ $valeur
+        $is_to && $modifier && echo $champ $to
+
+    elif pareil $champ "Cc:"
+    then
+        ! $is_cc && echo $champ $valeur
+        $is_cc && $modifier && echo $champ $cc
+
+    elif pareil $champ "Subject:"
+    then
+        ! $is_sub && echo $champ $valeur
+        $is_sub && $modifier && echo $champ $sub
+
+    elif pareil $champ "Keywords:"
+    then
+        ! $is_key && echo $champ $valeur
+        $is_key && $modifier && echo $champ $key
+
+    fi
+
+    read champ valeur
+done
+
+echo ""
+cat

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+is_to=false
+is_cc=false
+is_sub=false
+is_key=false
+
+for arg in $*
+do
+    case "$arg" in
+    --to) is_to=true ;;
+    --cc) is_cc=true ;;
+    --subject) is_sub=true ;;
+    --keywords) is_key=trye ;;
+    esac
+done
+
+echo $is_cc $is_to $is_sub $is_key
