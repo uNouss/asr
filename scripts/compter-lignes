@@ -1,0 +1,31 @@
+#!/bin/bash
+
+source /home/public/m1101/lib/2017-2018
+
+! pareil $# 1 && exit 0
+
+is_header=false
+is_body=false
+
+if pareil $1 "--header"
+then
+    is_header=true
+elif pareil $1 "--body"
+then
+    is_body=true
+fi
+
+read ligne
+
+h=0
+
+while ! est-vide $ligne
+do
+    h=$(expr $h + 1)
+    read ligne
+done
+
+${is_header} && echo $(expr $h - 1)
+${is_body} && echo $(cat | wc -l)
+
+exit 0

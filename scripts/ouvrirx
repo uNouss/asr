@@ -1,0 +1,25 @@
+#!/bin/bash
+
+source /home/public/m1101/lib/2017-2018
+
+is_option=false
+! est-vide $1 && { pareil $1 "-l" && { is_option=true; shift; } }
+f_in="/home/public/m1101/ctp/mailcapx"
+if ${is_option}
+then
+    cat /home/public/m1101/ctp/mailcapx | cut -d' ' -f1
+    exit 0
+else
+    for file in $*
+    do
+        grep -q $(file --mime-type ${file} | cut -d' ' -f2) ${f_in} && is_type=true || is_type=false
+        if test -f ${file} && $is_type
+        then
+            cmd=$(grep $(file --mime-type ${file} | cut -d' ' -f2) ${f_in} | tr -s ' ' | cut -d' ' -f2)
+            $cmd ${file} &
+        fi
+    done
+fi
+
+exit 0
+

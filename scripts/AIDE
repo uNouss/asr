@@ -1,0 +1,30 @@
+Erreurs féquentes en shell
+==========================
+
+* Pour désigner une variable à laquelle on veut affecter une valeur (via le
+  signe égal ou la commande read) on utilise simplement son nom **sans**
+  utiliser la caractère dollar.
+
+* Pour récupérer la valeur d'une variable en shell il faut préfixer son nom
+  par le caractère dollar, de façon à faire faire la transformation de la
+  ligne par le shell avant l'exécution.
+
+* Lors de l'affectation de variables il ne doit pas y avoir d'espace autour du
+  signe égal.
+
+* Quand on utilise une structure de controle `if` (ou `while`) il faut
+  absolument faire apparaître une **commande** après le `if` (ou le
+  `while`). Sa réussite (ou son échec) déterminera les commandes suivantes à
+  exécuter.
+
+* Lors de l'appel de commandes (notamment expr, etc.) il faut au moins un
+  espace autour de chacun des paramètres de façon à ce que la commande puisse
+  les identifier et donc s'en servir.
+
+* Quand on utilise une structure de controle `if` (ou `elif`) il faut
+  absolument** mettre le mot clé `then` avec les commandes à exécuter.
+
+* Quand on utilise une structure de controle `for` ou `while` il faut
+  **absolument** mettre le mot clé `do` avec les commandes de la boucle.
+
+

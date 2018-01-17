@@ -1,0 +1,16 @@
+#!/bin/bash
+
+source /home/public/m1101/lib/2017-2018
+pareil $# 0 && exit 0
+
+REP=${1}
+
+for file in ${REP}/*
+do
+    head -n1 ${file} | grep -xq "#\!/bin/bash" && is_bang=true || is_bang=false
+    if $is_bang && est-executable ${file}
+    then
+        echo ${file}
+    fi
+done
+exit 0

@@ -1,0 +1,55 @@
+Consignes pour le contrôle TP
+=============================
+
+L'épreuve est **individuelle**.
+
+1- Vous devez travailler dans le répertoire nommé `bin` de votre répertoire
+   principal.
+
+2- Vos scripts doivent porter les noms spécifiés dans l'énoncé.
+
+3- Pour être sûr que les commandes écrites en TP vous sont accessibles et
+   correctes vous devrez placer en tête de vos scripts la ligne :
+
+    source /home/public/m1101/lib/2017-2018
+
+    Ceci vous donne accès directement à des versions pleinement
+    opérationnelles des commandes suivantes
+
+    - pareil
+    - est-vide
+    - est-repertoire
+    - est-executable
+    - est-executable-par-tout-le-monde
+    - est-nombre-entier
+
+6- À la fin de l'épreuve :
+
+   - vous ne devez pas quitter la salle sans avoir
+
+     1- fait vérifier par votre enseignant l'état de votre répertoire `bin`
+
+     2- reçu l'autorisation de quitter la salle par votre enseignant
+
+   - jusqu'au jury de semestre, vous ne devez plus toucher à votre répertoire
+     `bin` ni à son contenu.
+
+Par ailleurs :
+
+- Vous n'avez le droit d'utiliser uniquement que 3 type d'outils 
+
+   - un éditeur de texte
+
+   - un terminal
+
+   - lecteur de fichier PDF
+
+   Toute utilisation d'un autre outil (notamment un navigateur de système de
+   fichiers ou explorateur) est strictement interdite pendant toute la durée
+   de l'épreuve, et pourra donc être sanctionnée.
+
+- Aucun document n'est autorisé sur le plan de travail.
+
+- En dehors de celles nécessaires et spécifiées pour l'épreuve, il est
+  strictement interdit d'accéder à d'autres données que celles qui vous
+  appartiennent sur le système de fichiers.
